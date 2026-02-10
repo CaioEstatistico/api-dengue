@@ -1,9 +1,6 @@
 install.packages(c(
   "plumber",
-  "glmnet",
   "jsonlite",
-  "dplyr",
-  "httpuv"
-))
-
-
+  "glmnet",
+  "caret"
+), repos = "https://cloud.r-project.org")
