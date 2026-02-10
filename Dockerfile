@@ -7,15 +7,16 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev
 
 # Instalar pacotes R
-COPY install.R /install.R
-RUN R -f /install.R
+COPY install.r /install.r
+RUN R -f /install.r
 
 # Copiar a API
-COPY plumber.R /plumber.R
-COPY modelo_dengue.rds /modelo_dengue.rds
+COPY plumber.r /plumber.r
+COPY modelo_lasso_dengue.rds /modelo_lasso_dengue.rds
+COPY variaveis_modelo.rds /variaveis_modelo.rds
 
 # Expor porta
 EXPOSE 8000
 
 # Rodar a API
-CMD ["R", "-e", "plumber::plumb('plumber.R')$run(host='0.0.0.0', port=8000)"]
+CMD ["R", "-e", "plumber::plumb('plumber.r')$run(host='0.0.0.0', port=8000)"]
