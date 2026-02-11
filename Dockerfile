@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
 
 # Instalar pacotes R
 COPY install.r /install.r
-RUN R -f /install.r
+RUN R -e "install.packages(c('plumber','jsonlite','glmnet','caret'), repos='https://cloud.r-project.org')"
 
 # Copiar a API
 COPY plumber.r /plumber.r
