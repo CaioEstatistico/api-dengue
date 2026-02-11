@@ -30,3 +30,14 @@ function(req){
                    ifelse(prob < 0.60, "Moderado", "Alto"))
   )
 }
+
+
+library(plumber)
+
+#* @apiTitle API Dengue
+
+#* Teste
+#* @get /ping
+function() {
+  list(status = "ok")
+}
